@@ -11,17 +11,14 @@ namespace tennis_test
         {
             var dictionary = new Dictionary<int, string>()
             {
+                {0,"Love" },
                 {1,"Fifteen" },
                 {2,"Thirty" },
                 {3,"Forty" }
             };
-            if (FirstPlayerScoreTimes > 0)
+            if (FirstPlayerScoreTimes != SecondPlayerScoreTimes)
             {
-                return dictionary[FirstPlayerScoreTimes] + " Love";
-            }
-            if (SecondPlayerScoreTimes > 0)
-            {
-                return "Love " + dictionary[SecondPlayerScoreTimes];
+                return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
             }
             return "Love All";
         }
