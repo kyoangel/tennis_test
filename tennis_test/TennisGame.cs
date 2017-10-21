@@ -21,12 +21,7 @@ namespace tennis_test
             {
                 if (FirstPlayerScoreTimes > 3 || SecondPlayerScoreTimes > 3)
                 {
-                    if (IsAdv())
-                    {
-                        AdvPlayer = GetAdvPlayer();
-                        return AdvPlayer + " Adv";
-                    }
-                    return GetAdvPlayer() + " Win";
+                    return GetAdvPlayer() + (IsAdv() ? " Adv" : " Win");
                 }
                 return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
             }
@@ -47,8 +42,6 @@ namespace tennis_test
         {
             return FirstPlayerScoreTimes > SecondPlayerScoreTimes ? FirstPlayer : SecondPlayer;
         }
-
-        public string AdvPlayer { get; set; }
 
         public string FirstPlayer { get; set; }
         public string SecondPlayer { get; set; }
