@@ -17,20 +17,46 @@ namespace tennis_test
                 {2,"Thirty" },
                 {3,"Forty" }
             };
-            if (FirstPlayerScoreTimes != SecondPlayerScoreTimes)
-            {
-                if (FirstPlayerScoreTimes > 3 || SecondPlayerScoreTimes > 3)
-                {
-                    return GetAdvPlayer() + (IsAdv() ? " Adv" : " Win");
-                }
-                return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
-            }
+            return IsPlayerScoreDifferent()
+                ? (IsPlayerReadyToWin()
+                    ? GetAdvScore()
+                    : GetNormalScore(dictionary))
+                : (IsDueuce() ? Deuce() : GetTheSameScore(dictionary));
+        }
 
-            if (FirstPlayerScoreTimes > 3)
-            {
-                return "Deuce";
-            }
+        private bool IsPlayerScoreDifferent()
+        {
+            return FirstPlayerScoreTimes != SecondPlayerScoreTimes;
+        }
+
+        private string GetTheSameScore(Dictionary<int, string> dictionary)
+        {
             return dictionary[FirstPlayerScoreTimes] + " All";
+        }
+
+        private static string Deuce()
+        {
+            return "Deuce";
+        }
+
+        private bool IsDueuce()
+        {
+            return FirstPlayerScoreTimes > 3;
+        }
+
+        private bool IsPlayerReadyToWin()
+        {
+            return FirstPlayerScoreTimes > 3 || SecondPlayerScoreTimes > 3;
+        }
+
+        private string GetAdvScore()
+        {
+            return GetAdvPlayer() + (IsAdv() ? " Adv" : " Win");
+        }
+
+        private string GetNormalScore(Dictionary<int, string> dictionary)
+        {
+            return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
         }
 
         private bool IsAdv()
