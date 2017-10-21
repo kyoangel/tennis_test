@@ -88,6 +88,16 @@ namespace tennis_test
             Assert.AreEqual("Thirty All", score);
         }
 
+        [TestMethod]
+        public void Deuce()
+        {
+            var tennisGame = new TennisGame();
+            GivenFirstPlayerScoreTimes(tennisGame, 4);
+            GivenSecondPlayerScoreTimes(tennisGame, 4);
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Deuce", score);
+        }
+
         private static void GivenSecondPlayerScoreTimes(TennisGame tennisGame, int times)
         {
             for (int i = 0; i < times; i++)

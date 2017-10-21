@@ -21,15 +21,11 @@ namespace tennis_test
                 return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
             }
 
-            if (FirstPlayerScoreTimes == 1)
+            if (FirstPlayerScoreTimes > 3)
             {
-                return "Fifteen All";
+                return "Deuce";
             }
-            if (FirstPlayerScoreTimes == 2)
-            {
-                return "Thirty All";
-            }
-            return "Love All";
+            return dictionary[FirstPlayerScoreTimes] + " All";
         }
 
         public void FirstPlayerScore()
