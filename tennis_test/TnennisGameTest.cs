@@ -69,7 +69,7 @@ namespace tennis_test
         }
 
         [TestMethod]
-        public void Fifteen_Fifteen()
+        public void Fifteen_All()
         {
             var tennisGame = new TennisGame();
             GivenFirstPlayerScoreTimes(tennisGame, 1);
