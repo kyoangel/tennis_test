@@ -1,4 +1,6 @@
-﻿namespace tennis_test
+﻿using System.Collections.Generic;
+
+namespace tennis_test
 {
     public class TennisGame
     {
@@ -7,13 +9,14 @@
 
         public string GetScore()
         {
-            if (FirstPlayerScoreTimes == 1)
+            var dictionary = new Dictionary<int, string>()
             {
-                return "Fifteen Love";
-            }
-            if (FirstPlayerScoreTimes == 2)
+                {1,"Fifteen" },
+                {2,"Thirty" }
+            };
+            if (FirstPlayerScoreTimes > 0)
             {
-                return "Thirty Love";
+                return dictionary[FirstPlayerScoreTimes] + " Love";
             }
             return "Love All";
         }
