@@ -22,6 +22,10 @@ namespace tennis_test
             {
                 return "Love Fifteen";
             }
+            if (SecondPlayerScoreTimes == 2)
+            {
+                return "Love Thirty";
+            }
             return "Love All";
         }
 

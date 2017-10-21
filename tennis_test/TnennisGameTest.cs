@@ -41,6 +41,23 @@ namespace tennis_test
             Assert.AreEqual("Love Fifteen", score);
         }
 
+        [TestMethod]
+        public void Love_Thirty()
+        {
+            var tennisGame = new TennisGame();
+            GivenSecondPlayerScoreTimes(tennisGame, 2);
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Love Thirty", score);
+        }
+
+        private static void GivenSecondPlayerScoreTimes(TennisGame tennisGame, int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                tennisGame.SecondPlayerScore();
+            }
+        }
+
         private static void GivenFirstPlayerScoreTimes(TennisGame tennisGame, int times)
         {
             for (int i = 0; i < times; i++)
