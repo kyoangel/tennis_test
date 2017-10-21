@@ -19,13 +19,9 @@ namespace tennis_test
             {
                 return dictionary[FirstPlayerScoreTimes] + " Love";
             }
-            if (SecondPlayerScoreTimes == 1)
+            if (SecondPlayerScoreTimes > 0)
             {
-                return "Love Fifteen";
-            }
-            if (SecondPlayerScoreTimes == 2)
-            {
-                return "Love Thirty";
+                return "Love " + dictionary[SecondPlayerScoreTimes];
             }
             return "Love All";
         }
