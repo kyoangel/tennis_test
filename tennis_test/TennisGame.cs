@@ -18,9 +18,13 @@ namespace tennis_test
             };
             if (FirstPlayerScoreTimes != SecondPlayerScoreTimes)
             {
-                if (FirstPlayerScoreTimes>3)
+                if (FirstPlayerScoreTimes > 3)
                 {
                     return FirstPlayer + " Adv";
+                }
+                if (SecondPlayerScoreTimes > 3)
+                {
+                    return SecondPlayer + " Adv";
                 }
                 return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
             }
@@ -33,6 +37,7 @@ namespace tennis_test
         }
 
         public string FirstPlayer { get; set; }
+        public string SecondPlayer { get; set; }
 
         public void FirstPlayerScore()
         {
