@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace tennis_test
 {
@@ -18,13 +19,14 @@ namespace tennis_test
             };
             if (FirstPlayerScoreTimes != SecondPlayerScoreTimes)
             {
-                if (FirstPlayerScoreTimes > 3)
+                if (FirstPlayerScoreTimes > 3 || SecondPlayerScoreTimes > 3)
                 {
-                    return FirstPlayer + " Adv";
-                }
-                if (SecondPlayerScoreTimes > 3)
-                {
-                    return SecondPlayer + " Adv";
+                    if (IsAdv())
+                    {
+                        AdvPlayer = GetAdvPlayer();
+                        return AdvPlayer + " Adv";
+                    }
+                    return GetAdvPlayer() + " Win";
                 }
                 return dictionary[FirstPlayerScoreTimes] + " " + dictionary[SecondPlayerScoreTimes];
             }
@@ -35,6 +37,18 @@ namespace tennis_test
             }
             return dictionary[FirstPlayerScoreTimes] + " All";
         }
+
+        private bool IsAdv()
+        {
+            return Math.Abs(FirstPlayerScoreTimes - SecondPlayerScoreTimes) == 1;
+        }
+
+        private string GetAdvPlayer()
+        {
+            return FirstPlayerScoreTimes > SecondPlayerScoreTimes ? FirstPlayer : SecondPlayer;
+        }
+
+        public string AdvPlayer { get; set; }
 
         public string FirstPlayer { get; set; }
         public string SecondPlayer { get; set; }

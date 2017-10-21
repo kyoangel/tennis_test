@@ -121,6 +121,30 @@ namespace tennis_test
             Assert.AreEqual("Eric Adv", score);
         }
 
+        [TestMethod]
+        public void FirstPlayerAdv_5_4()
+        {
+            var tennisGame = new TennisGame();
+            tennisGame.FirstPlayer = "Joey";
+            tennisGame.SecondPlayer = "Eric";
+            GivenFirstPlayerScoreTimes(tennisGame, 5);
+            GivenSecondPlayerScoreTimes(tennisGame, 4);
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Joey Adv", score);
+        }
+
+        [TestMethod]
+        public void FirstPlayerWin_5_3()
+        {
+            var tennisGame = new TennisGame();
+            tennisGame.FirstPlayer = "Joey";
+            tennisGame.SecondPlayer = "Eric";
+            GivenFirstPlayerScoreTimes(tennisGame, 5);
+            GivenSecondPlayerScoreTimes(tennisGame, 3);
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Joey Win", score);
+        }
+
         private static void GivenSecondPlayerScoreTimes(TennisGame tennisGame, int times)
         {
             for (int i = 0; i < times; i++)
