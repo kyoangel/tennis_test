@@ -18,6 +18,10 @@ namespace tennis_test
             {
                 return dictionary[FirstPlayerScoreTimes] + " Love";
             }
+            if (SecondPlayerScoreTimes == 1)
+            {
+                return "Love Fifteen";
+            }
             return "Love All";
         }
 

@@ -27,11 +27,26 @@ namespace tennis_test
         public void Thirty_Love()
         {
             var tennisGame = new TennisGame();
-            tennisGame.FirstPlayerScore();
-
-            tennisGame.FirstPlayerScore();
+            GivenFirstPlayerScoreTimes(tennisGame, 2);
             var score = tennisGame.GetScore();
             Assert.AreEqual("Thirty Love", score);
+        }
+
+        [TestMethod]
+        public void Love_Fifteen()
+        {
+            var tennisGame = new TennisGame();
+            tennisGame.SecondPlayerScore();
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Love Fifteen", score);
+        }
+
+        private static void GivenFirstPlayerScoreTimes(TennisGame tennisGame, int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                tennisGame.FirstPlayerScore();
+            }
         }
     }
 }
