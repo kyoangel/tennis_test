@@ -8,19 +8,30 @@ namespace tennis_test
         [TestMethod]
         public void love_all()
         {
-            var tenisGame = new TennisGame();
-            var score = tenisGame.GetScore();
+            var tennisGame = new TennisGame();
+            var score = tennisGame.GetScore();
             Assert.AreEqual("Love All", score);
         }
 
         [TestMethod]
         public void Fifteen_Love()
         {
-            var tenisGame = new TennisGame();
-            tenisGame.FirstPlayerScore();
+            var tennisGame = new TennisGame();
+            tennisGame.FirstPlayerScore();
 
-            var score = tenisGame.GetScore();
+            var score = tennisGame.GetScore();
             Assert.AreEqual("Fifteen Love", score);
+        }
+
+        [TestMethod]
+        public void Thirty_Love()
+        {
+            var tennisGame = new TennisGame();
+            tennisGame.FirstPlayerScore();
+
+            tennisGame.FirstPlayerScore();
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Thirty Love", score);
         }
     }
 }
