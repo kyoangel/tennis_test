@@ -25,6 +25,10 @@ namespace tennis_test
             {
                 return "Fifteen All";
             }
+            if (FirstPlayerScoreTimes == 2)
+            {
+                return "Thirty All";
+            }
             return "Love All";
         }
 

@@ -78,6 +78,16 @@ namespace tennis_test
             Assert.AreEqual("Fifteen All", score);
         }
 
+        [TestMethod]
+        public void Thirty_All()
+        {
+            var tennisGame = new TennisGame();
+            GivenFirstPlayerScoreTimes(tennisGame, 2);
+            GivenSecondPlayerScoreTimes(tennisGame, 2);
+            var score = tennisGame.GetScore();
+            Assert.AreEqual("Thirty All", score);
+        }
+
         private static void GivenSecondPlayerScoreTimes(TennisGame tennisGame, int times)
         {
             for (int i = 0; i < times; i++)
